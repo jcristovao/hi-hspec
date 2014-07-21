@@ -1,31 +1,54 @@
-Name:                   $packageName
-Version:                0.0.0
-Author:                 $author <$email>
-Maintainer:             $author <$email>
-License:                MIT
-License-File:           LICENSE
+Name:                 $packageName
+Version:              0.1.0
+Author:               $author <$email>
+Maintainer:           $author <$email>
+Homepage:             https://github.com/jcristovao/$packageName
+License:              BSD3
+License-File:         LICENSE
 -- Synopsis:               Short description, appears in Hackage listings
 -- Description:            Long explanation, appears at top of project page
-Cabal-Version:          >= 1.10
-Build-Type:             Simple
+Cabal-Version:        >= 1.18
+Build-Type:           Simple
 
 Library
-  Default-Language:     Haskell2010
-  HS-Source-Dirs:       src
-  GHC-Options:          -Wall
-  Exposed-Modules:      $moduleName
-  Build-Depends:        base >= 4 && < 5
+  Default-Language:   Haskell2010
+  hs-Source-Dirs:     src
+  ghc-options:        -Wall -threaded
+  default-extensions: DeriveDataTypeable
+  Exposed-Modules:    $moduleName
+  Build-Depends:      base                        >= 4.6.0.1  && < 5
+                    , async                       >= 2.0.1    && < 2.1
+                    , attoparsec                  >= 0.11     && < 0.13
+                    , base-unicode-symbols        >= 0.2.2    && < 0.3
+                    , containers                  >= 0.5.5    && < 0.6
+                    , containers-unicode-symbols  >= 0.3.1    && < 0.4
+                    , easy-prelude                >= 0.1      && < 0.2
+                    , exceptions                  >= 0.6      && < 0.7
+                    , network                     >= 2.4.2.3  && < 2.5
+                    , stm                         >= 2.4      && < 2.5
+                    , template-haskell            >= 2.9      && < 2.10
+                    , text                        >= 0.11.3   && < 1.2
+                    , time                        >= 1.4.0.1  && < 1.5
+                    , unordered-containers        >= 0.2.4    && < 0.3
+            
 
 Test-Suite spec
-  Type:                 exitcode-stdio-1.0
-  Default-Language:     Haskell2010
-  Hs-Source-Dirs:       test
-  Ghc-Options:          -Wall
-  Main-Is:              Spec.hs
-  Build-Depends:        base
-                      , $packageName
-                      , hspec
+  Type:                exitcode-stdio-1.0
+  Default-Language:    Haskell2010
+  hs-source-dirs:      test
+  ghc-options:         -Wall -threaded
+  Main-Is:             Spec.hs
+  Build-Depends:      base                        >= 4.6.0.1  && < 5
+                    , $packageName
+                    , QuickCheck                  >= 2.7      && < 2.8
+                    , containers                  >= 0.5.5    && < 0.6
+                    , doctest                     >= 0.9.10   && < 0.10
+                    , easy-prelude                >= 0.1      && < 0.2
+                    , hspec                       >= 1.9      && < 2.0
+                    , quickcheck-instances        >= 0.3.8    && < 0.4
+                    , text                        >= 0.11.3   && < 1.2
+                    , unordered-containers        >= 0.2.4    && < 0.3
 
 Source-Repository head
-  Type:                 git
-  Location:             https://github.com/pbrisbin/$packageName
+  Type:               git
+  Location:           https://github.com/jcristovao/$packageName
