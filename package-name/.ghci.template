@@ -1,0 +1,7 @@
+:set prompt "\\- "
+:set -XDeriveGeneric
+:set -XDeriveDataTypeable
+:set -XTemplateHaskell
+:set -XMultiParamTypeClasses
+:set -XQuasiQuotes
+:set -XOverloadedStrings
